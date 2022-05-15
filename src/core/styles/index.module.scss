@@ -1,0 +1,9 @@
+@import "mixins/typography";
+@import "variables/colors";
+@import "reset";
+
+body{
+  @include regular-text;
+  font-family: 'Open Sans', sans-serif;
+  color: $black;
+}
