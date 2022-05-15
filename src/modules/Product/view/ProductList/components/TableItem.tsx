@@ -1,6 +1,7 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 import { IProduct } from 'infra/Product/Product.interface'
 import { TableRow, TableCell } from 'core/components'
+import { useNavigate } from 'react-router-dom'
 
 export interface TableItemProps {
     content: IProduct
@@ -8,8 +9,14 @@ export interface TableItemProps {
 
 const Component: React.FC<TableItemProps> = (props) => {
     const { content } = props
+    const navigate = useNavigate()
+
+    const redirectToDetail = useCallback(() => {
+        navigate(`/product/${content.id}`)
+    }, [content.id, navigate])
+
     return (
-        <TableRow>
+        <TableRow onClick={redirectToDetail} style={{ cursor: 'pointer' }}>
             <TableCell>{content.name}</TableCell>
             <TableCell>{content.inner_product_id}</TableCell>
             <TableCell>{content.brand.name}</TableCell>
