@@ -1,0 +1,33 @@
+@import "src/core/styles/variables/colors";
+
+.controls{
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}
+.controlsItems{
+  display: flex;
+  align-items: center;
+}
+
+.delimiter{
+  width: 1px;
+  height: 100%;
+  background-color: $gray-1;
+  margin: 0 35px;
+}
+
+.resetContainer{
+  display: flex;
+  align-items: center;
+  color: $primary-1;
+  cursor: pointer;
+}
+.resetIconContainer{
+  padding-right: 11px;
+  display: flex;
+  align-items: center;
+  & svg path{
+    stroke: $primary-1;
+  }
+}

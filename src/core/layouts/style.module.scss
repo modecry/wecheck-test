@@ -1,0 +1,17 @@
+@import 'src/core/styles/variables/colors';
+@mixin side-content{
+  content: '';
+  display: block;
+  height: 100vh;
+  width: 60px;
+}
+
+.appWrapper{
+  display: flex;
+  &:after{
+    @include side-content;
+  }
+  &:before{
+    @include side-content;
+  }
+}

@@ -10,6 +10,12 @@
   &:hover{
     background-color: $primary-2 !important;
   }
+  &.head{
+    background-color: $gray-1;
+    &:hover{
+      background-color: $gray-1 !important;
+    }
+  }
 }
 
 .tableGap{
