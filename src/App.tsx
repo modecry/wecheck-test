@@ -1,6 +1,7 @@
 import React from 'react'
 import { ProductListPage, ProductPage } from 'pages/index'
 import { Routes, Route } from 'react-router-dom'
+import 'core/styles/index.module.scss'
 
 function App() {
     return (
