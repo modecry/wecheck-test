@@ -1,10 +1,11 @@
-import { IPaging } from 'infra/core/Paging.interface'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import {
     PagingParams,
     PagingProps,
 } from 'helpers/hooks/usePagination/usePagination'
 import { usePagination } from 'helpers/hooks/usePagination/usePagination'
+import { sortObjects } from 'helpers/utils/sortObjects'
+import { ISort } from 'infra/core/Sort.interface'
 
 export type IUseListable<T> = {
     pagingProps: Omit<PagingProps<T>, 'list'>
@@ -14,6 +15,7 @@ export type IUseListable<T> = {
 export type FetcherSignature<T> = () => T
 export interface ListableParams {
     pagingParams: PagingParams
+    sortParams?: ISort
 }
 
 /**
@@ -25,7 +27,7 @@ export const useListable = <T extends Array<any>>(
     fetcher: FetcherSignature<T>,
     listableParams: ListableParams
 ): IUseListable<T> => {
-    const { pagingParams } = listableParams
+    const { pagingParams, sortParams } = listableParams
     const [data] = useState<T | []>(() => {
         return fetcher()
     })
@@ -33,6 +35,13 @@ export const useListable = <T extends Array<any>>(
         pagingParams,
         data as T
     )
+
+    const listContent = useMemo(() => {
+        if (sortParams?.type && sortParams?.path) {
+            return sortObjects(sortParams, list)
+        }
+        return list
+    }, [list, sortParams])
 
     return {
         pagingProps: {
@@ -43,6 +52,6 @@ export const useListable = <T extends Array<any>>(
             },
             handleChangePage,
         },
-        list,
+        list: listContent,
     }
 }

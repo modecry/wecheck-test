@@ -18,7 +18,10 @@ export const ProductListContainer: React.FC<ProductListContainerProps> = (
         pagingParams: {
             pageSize: 4,
         },
+        sortParams: {
+            type: 'asc',
+            path: 'brand.name',
+        },
     })
-
     return <Component list={list} pagingProps={pagingProps} />
 }
