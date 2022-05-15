@@ -15,7 +15,7 @@ import { TableItem } from './components/TableItem'
 import s from './style.module.scss'
 
 export const ProductListView: React.FC<IProductListView> = (props) => {
-    const { list } = props
+    const { list, pagingProps } = props
 
     return (
         <div style={{ width: '100%' }}>
@@ -54,7 +54,11 @@ export const ProductListView: React.FC<IProductListView> = (props) => {
             <div className={s.controls}>
                 <div className={s.controlsItems}>
                     <div>
-                        <Pagination currentPage={1} totalPages={5} />
+                        <Pagination
+                            currentPage={pagingProps.paging.currentPage}
+                            totalPages={pagingProps.paging.totalPages}
+                            onPageChange={pagingProps.handleChangePage}
+                        />
                     </div>
                     <div className={s.delimiter} />
 

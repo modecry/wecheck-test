@@ -1,7 +1,7 @@
 import { IProduct } from 'infra/Product/Product.interface'
-import { IPaging } from 'infra/core/Paging.interface'
+import { PagingProps } from 'helpers/hooks/usePagination/usePagination'
 
 export interface IProductListView {
     list: IProduct[]
-    pagination?: IPaging //todo: complete paging
+    pagingProps: Omit<PagingProps<IProduct[]>, 'list'>
 }
