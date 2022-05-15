@@ -24,10 +24,11 @@
       "helpers/*": ["src/helpers/*"],
       "infra/*": ["src/infra/*"],
       "core/*": ["src/core/*"],
-      "pages/*": ["src/pages/*"]
+      "pages/*": ["src/pages/*"],
     }
   },
   "include": [
-    "src"
+    "src",
+    "global.d.ts"
   ]
 }

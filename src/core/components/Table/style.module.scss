@@ -1,0 +1,17 @@
+@import "src/core/styles/variables/colors";
+
+.tableContainer{
+  & tr:nth-child(2n){
+    background-color: $gray-3;
+  }
+}
+
+.tableRow{
+  &:hover{
+    background-color: $primary-2 !important;
+  }
+}
+
+.tableGap{
+  padding: 8px;
+}
