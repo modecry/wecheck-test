@@ -1,0 +1,40 @@
+@import "src/core/styles/variables/colors";
+
+.paginationContainer{
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  &>a{
+    display: flex;
+    cursor: pointer;
+  }
+  &>a:hover svg path{
+    stroke: $gray-2 !important;
+  }
+}
+
+.arrowIconNext{
+  transform: rotate(180deg);
+}
+
+.pagingItem{
+
+  &>a{
+    cursor: pointer;
+    color: black;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &.active a{
+    background-color: $primary-1;
+    color: #FFffff;
+  }
+}
