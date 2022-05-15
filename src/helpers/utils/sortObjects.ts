@@ -16,10 +16,14 @@ export const sortObjects = <T extends Array<Record<string, any>>>(
             let FirstValue = getValueByPath(a, params.path as string)
             let SecondValue = getValueByPath(b, params.path as string)
 
-            if (typeof FirstValue === 'string') {
+            if (typeof FirstValue === 'string' && !Number(FirstValue)) {
                 FirstValue = FirstValue.toLowerCase()
                 SecondValue = SecondValue.toLowerCase()
+            } else {
+                FirstValue = Number(FirstValue)
+                SecondValue = Number(SecondValue)
             }
+
             switch (params.type) {
                 case 'asc':
                     return FirstValue < SecondValue

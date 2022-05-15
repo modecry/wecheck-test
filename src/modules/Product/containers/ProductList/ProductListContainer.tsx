@@ -4,6 +4,8 @@ import { IProductListView } from 'modules/Product/interfaces/ProductList/Product
 import { getProductsList } from 'modules/Product/fetchers'
 import { useListable } from 'helpers/hooks/useListable/useListable'
 import { IProduct } from 'infra/Product/Product.interface'
+import { useRecoilValue } from 'recoil'
+import { ProductsSortState } from 'modules/Product/containers/ProductList/state/ProductsSort.state'
 
 export interface ProductListContainerProps {
     component: React.ComponentType<IProductListView>
@@ -13,15 +15,13 @@ export const ProductListContainer: React.FC<ProductListContainerProps> = (
     props
 ) => {
     const { component: Component } = props
+    const sortParams = useRecoilValue(ProductsSortState)
 
     const { list, pagingProps } = useListable<IProduct[]>(getProductsList, {
         pagingParams: {
             pageSize: 4,
         },
-        sortParams: {
-            type: 'asc',
-            path: 'brand.name',
-        },
+        sortParams,
     })
     return <Component list={list} pagingProps={pagingProps} />
 }

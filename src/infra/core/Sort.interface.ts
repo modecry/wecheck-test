@@ -1,4 +1,6 @@
 export interface ISort {
     path: string | null
-    type: 'asc' | 'desc' | null
+    type: SortType
 }
+
+export type SortType = 'asc' | 'desc' | null
