@@ -1,22 +1,7 @@
 import { useMemo, useState } from 'react'
-import {
-    PagingParams,
-    PagingProps,
-} from 'helpers/hooks/usePagination/usePagination'
+import { FetcherSignature, ListableParams, IUseListable } from './types'
 import { usePagination } from 'helpers/hooks/usePagination/usePagination'
-import { sortObjects } from 'helpers/utils/sortObjects'
-import { ISort } from 'infra/core/Sort.interface'
-
-export type IUseListable<T> = {
-    pagingProps: Omit<PagingProps<T>, 'list'>
-    list: T
-}
-
-export type FetcherSignature<T> = () => T
-export interface ListableParams {
-    pagingParams: PagingParams
-    sortParams?: ISort
-}
+import { sortObjects } from 'helpers/utils'
 
 /**
  * Комбинированный хук фетчинга данных совмешаюший пагинацию и сортировку

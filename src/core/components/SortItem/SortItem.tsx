@@ -12,6 +12,9 @@ export interface SortItemProps {
     onToggleFilter: ToggleFilter
 }
 
+/**
+ * Компонент-айтем сортировки
+ */
 export const SortItem: React.FC<SortItemProps> = (props) => {
     const { label, pathName, onToggleFilter, active } = props
     const [type, setType] = useState<SortType>(null)

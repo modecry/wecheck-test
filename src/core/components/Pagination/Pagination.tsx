@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { IPaging } from 'infra/core/Paging.interface'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 import { Icon } from 'core/components'
+
 import s from './styles.module.scss'
 
 export type PaginationProps = Omit<IPaging, 'pageSize'> &

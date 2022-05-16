@@ -1,6 +1,9 @@
 import React, { useCallback, useMemo } from 'react'
+import { useRecoilState } from 'recoil'
+
 import { IProductListView } from 'modules/Product/interfaces/ProductList/ProductList.interface'
 import { ISort } from 'infra/core/Sort.interface'
+import { ProductsSortState } from 'modules/Product/containers/ProductList/state/ProductsSort.state'
 
 import {
     Table,
@@ -14,9 +17,7 @@ import {
 } from 'core/components'
 import { TableItem } from './components/TableItem'
 
-import { SORT_PATHS } from './constants/SORT_PATHS'
-import { useRecoilState } from 'recoil'
-import { ProductsSortState } from 'modules/Product/containers/ProductList/state/ProductsSort.state'
+import { SORT_PATHS } from './constants'
 
 import s from './style.module.scss'
 

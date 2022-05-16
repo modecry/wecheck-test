@@ -1,18 +1,5 @@
-import { IPaging } from 'infra/core/Paging.interface'
 import { useCallback, useMemo, useState } from 'react'
-
-export type HandleChangePageSignature = (selectedItem: {
-    selected: number
-}) => void
-export interface PagingProps<T> {
-    paging: IPaging
-    handleChangePage: HandleChangePageSignature
-    list: T
-}
-export interface PagingParams {
-    pageSize: number
-    currentPage?: number
-}
+import { HandleChangePageSignature, PagingParams, PagingProps } from './types'
 
 /**
  * Хук выполняющий пейджинг

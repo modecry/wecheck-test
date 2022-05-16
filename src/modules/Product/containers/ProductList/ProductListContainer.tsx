@@ -1,11 +1,10 @@
 import React from 'react'
-
+import { useRecoilValue } from 'recoil'
+import { IProduct } from 'infra/Product/Product.interface'
 import { IProductListView } from 'modules/Product/interfaces/ProductList/ProductList.interface'
 import { getProductsList } from 'modules/Product/fetchers'
 import { useListable } from 'helpers/hooks/useListable/useListable'
-import { IProduct } from 'infra/Product/Product.interface'
-import { useRecoilValue } from 'recoil'
-import { ProductsSortState } from 'modules/Product/containers/ProductList/state/ProductsSort.state'
+import { ProductsSortState } from './state/ProductsSort.state'
 
 export interface ProductListContainerProps {
     component: React.ComponentType<IProductListView>
