@@ -59,7 +59,9 @@ export const ProductListView: React.FC<IProductListView> = (props) => {
         <div style={{ width: '100%' }}>
             <Table style={{ width: '100%' }}>
                 <TableHead>
-                    <TableRow isHead>{composeSortHeaders}</TableRow>
+                    <TableRow isHead className={s.headRow}>
+                        {composeSortHeaders}
+                    </TableRow>
                 </TableHead>
                 <TableBody>
                     {list.map((item) => (

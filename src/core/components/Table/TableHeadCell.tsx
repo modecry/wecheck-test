@@ -12,8 +12,8 @@ export type TableHeadCellProps = BaseTableItem &
 export const TableHeadCell: React.FC<TableHeadCellProps> = (props) => {
     const { children, className, ...rest } = props
     return (
-        <td className={cn(s.tableGap, className)} {...rest}>
+        <th className={cn(s.tableGap, className)} {...rest}>
             {children}
-        </td>
+        </th>
     )
 }
