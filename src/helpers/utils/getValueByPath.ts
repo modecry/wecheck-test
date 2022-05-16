@@ -1,6 +1,6 @@
 /**
  * Вытаскивает значение по цепочке ключей
- * @param object - ключевой обхект
+ * @param object - ключевой объект
  * @param path - цепочка ключей формата [keyName.keyName]
  */
 export const getValueByPath = (object: Record<string, any>, path: string) => {
