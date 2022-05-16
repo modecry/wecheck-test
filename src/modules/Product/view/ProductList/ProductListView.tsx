@@ -42,14 +42,13 @@ export const ProductListView: React.FC<IProductListView> = (props) => {
     const composeSortHeaders = useMemo(() => {
         return Object.keys(SORT_PATHS).map((keyPath: any) => {
             return (
-                <TableHeadCell>
+                <TableHeadCell key={keyPath}>
                     <SortItem
                         // @ts-ignore
                         label={SORT_PATHS[keyPath]}
                         pathName={keyPath as string}
                         active={sort.path === keyPath}
                         onToggleFilter={handleChangeFilter}
-                        key={keyPath}
                     />
                 </TableHeadCell>
             )
